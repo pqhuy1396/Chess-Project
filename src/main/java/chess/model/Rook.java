@@ -5,7 +5,8 @@ package chess.model;
 public class Rook implements Figure {
     private boolean colour;
     int type = 10;
-
+    String Symbol;
+    int value = 50;
     /**
      * Creates a new Rook Instance with one of the two Colours.
      * @param colour One of the two Colours in Boolean Form. White: True ; Black: False
@@ -22,11 +23,24 @@ public class Rook implements Figure {
     public String print(){
         if (colour){
 
-            return "\u265C";
+            //return "\u265C";
+            return "R";
         }
         else {
             //return"\u2656";
             return "r";
+        }
+    }
+    @Override
+    public String print1(){
+        if (!colour){
+
+            return "\u265C";
+
+        }
+        else {
+            return"\u2656";
+
         }
     }
 
@@ -76,5 +90,14 @@ public class Rook implements Figure {
     @Override
     public void setType(int  i) {
         this.type = i;
+    }
+
+    /**
+     * method to get the value of the rook
+     * @return value in int
+     */
+    @Override
+    public int getValue(){
+        return value;
     }
 }

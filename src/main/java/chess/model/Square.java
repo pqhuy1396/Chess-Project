@@ -26,8 +26,65 @@ public class Square {
      */
     public Square(Square square){
         this.colour = square.colour;
-        this.figure = square.figure;
+
         this.empty = square.empty;
+        if (square.isEmpty()){
+            this.figure= null;
+            this.empty=true;
+
+        }
+        else if(square.getFigure().getType()==2){
+            this.figure = new Bishop(square.getFigure().isColour());
+            figure.setType(2);
+
+        }
+        else{
+            this.figure=copyFigure(square.getFigure().getType(),square.getFigure().isColour());
+        }
+    }
+    /**
+     * method to identify the right figure for the copy constructor
+     * @param type the type of the figure
+     * @param colour the value
+     * @return the searched figure
+     */
+    public Figure copyFigure(int type, boolean colour){
+        Figure figure1=null;
+        switch(type){
+            case 0:
+                figure1 = new Pawn(colour);
+                figure1.setType(0);
+                break;
+            case 20:
+                figure1 = new Pawn(colour);
+                figure1.setType(20);
+                break;
+            case 10:
+                figure1 = new Rook(colour);
+                figure1.setType(10);
+                break;
+            case 1:
+                figure1 = new Rook(colour);
+                figure1.setType(1);
+                break;
+            case 5:
+                figure1 = new Queen(colour);
+                figure1.setType(5);
+                break;
+            case 3:
+                figure1 = new Knight(colour);
+                figure1.setType(3);
+                break;
+            case 4:
+                figure1 = new King(colour);
+                figure1.setType(4);
+                break;
+            case 40:
+                figure1 = new King(colour);
+                figure1.setType(40);
+                break;
+        }
+        return figure1;
     }
     /**
      * Creates a empty Square Instance with Colour White
@@ -96,6 +153,8 @@ public class Square {
      * @return Returns the Colour. White: True ; Black: False
      */
     public boolean isFigureColour(){
+        if(isEmpty())
+            System.out.println("fehler");
             return this.figure.isColour();
 
     }
@@ -109,16 +168,5 @@ public class Square {
         return figure.checkMove(order);
     }
 
-    /**
-     * Checks the move in threatlist
-     * @param tempOrder temporary order
-     * @param tempType temporary type
-     * @param board the current board
-     * @return the
-     */
-    public boolean threatMove(int[] tempOrder, int tempType,Board board) {
-       boolean res = board.squares[tempOrder[1]][tempOrder[0]].allowedFigureMove(tempOrder);
-        board.squares[tempOrder[1]][tempOrder[0]].getFigure().setType(tempType);
-        return  res;
-    }
+
 }

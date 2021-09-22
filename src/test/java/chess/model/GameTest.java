@@ -1,5 +1,8 @@
 package chess.model;
 
+
+import chess.controller.ConsoleInput;
+import chess.controller.Scanner;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,17 +15,19 @@ public class GameTest {
     /**
      * This tes case doesn't make any sense. It is just here as an example.
      */
-    boolean player=true;
-    Board board;
-    Movement movement;
-    chess.controller.ConsoleInput ConsoleInput;
-    Game game = new Game();
+    ConsoleInput input = new ConsoleInput();
+    HumanPlayer player1 = new HumanPlayer(input);
+    HumanPlayer player2 = new HumanPlayer(input);
+    Game game = new Game(player1,player2);
 
     /**
      * Test for the switching of turns
      */
     @Test
     public void testTurn(){
+        game.getPlayer1();
+        game.getPlayer2();
+        assertTrue(game.player);
         game.updateTurn();
         assertFalse(game.player);
     }
@@ -44,77 +49,69 @@ public class GameTest {
         }
         Rook rook1 = new Rook(true);
         positionBoard.squares[7][4].setFigure(rook1);
-        assertFalse(game.allowedPosition(oder3, true,positionBoard));
-        assertTrue(game.allowedPosition(oder1, true,positionBoard));
+        assertFalse(Scanner.allowedPosition(oder3, true,positionBoard));
+        assertTrue(Scanner.allowedPosition(oder1, true,positionBoard));
         Rook rook2 = new Rook(false);
         positionBoard.squares[5][4].setFigure(rook2);
-        assertTrue(game.allowedPosition(oder2, true,positionBoard));
+        assertTrue(Scanner.allowedPosition(oder2, true,positionBoard));
         positionBoard.squares[5][4].removeFigure();
         Rook rook3 = new Rook(true);
         positionBoard.squares[5][4].setFigure(rook3);
-        assertFalse(game.allowedPosition(oder2, true,positionBoard));
+        assertFalse(Scanner.allowedPosition(oder2, true,positionBoard));
     }
 
     /**
      * Test whether a move is allowed
      */
     @Test
-    public void testAllowMove(){
+    public void testAllowedMove(){
         Board moveBoard = new Board();
         int[] oder1 = {1,1,1,3};
         int[] oder2 = {0,1,1,5};
         assertTrue(game.allowedMove(oder1,moveBoard));
         assertFalse(game.allowedMove(oder2,moveBoard));
     }
-    @Test
-    public void runGame(){
 
-        //this test runGame need long time to wait
-        //game.runGame();
-        game.print();
-    }
+
 
     /**
-     * Tests the resets for the EnPassant variables in the pawns
+     * Tests the resets for the EnPassant variables in the pawns 20!
      */
     @Test
     public void resetEnPassant(){
-        int[] oder1 = {1,6,3,1};
+
+        Board board = new Board();
+        board.getSquare(3,1).setFigure(new Pawn(true));
+        board.getSquare(3,1).getFigure().setType(20);
+        int[] oder1 = {0,0,1,1};
         game.resetEnPassant(oder1);
+        assertFalse(board.getSquare(3,1).isEmpty());
+        assertEquals( board.getSquare(3,1).getFigure().getType(),20);
     }
+
     /**
-     * Tests a player can "escape" from chess
+     * Tests whether getBoard works
      */
     @Test
-    public void canRelease(){
-        assertTrue(game.canRelease(false));
-        assertTrue(game.canRelease(true));
+    public void getBoardTest(){
+        ConsoleInput input = new ConsoleInput();
+        HumanPlayer player1 = new HumanPlayer(input);
+        HumanPlayer player2 = new HumanPlayer(input);
+        Game game = new Game(player1,player2);
+        assertFalse(game.getBoard().getSquare(0,0).isEmpty());
+        assertTrue(game.getBoard().getSquare(4,4).isEmpty());
     }
+
+
+
     /**
-     * Tests move on board
+     * Tests whether isTurn works
      */
     @Test
-    public void executeMove(){
-        Board positionBoard = new Board();
-        for (int j = 0; j < 8; j++) {
-            for (int i = 0; i < 8; i++) {
-
-                positionBoard.squares[i][j].removeFigure();
-            }
-        }
-        Pawn pawnWhite = new Pawn(true);
-        Pawn pawnBlack = new Pawn(false);
-
-        positionBoard.squares[4][7].setFigure(pawnWhite);
-        positionBoard.squares[3][6].setFigure(pawnBlack);
-        int[] pawnWhiteMove = {7,4,6,3};
-        game.executeMove(pawnWhiteMove);
+    public void isTurnTest(){
+        assertTrue(game.isTurn());
+        game.updateTurn();
+        assertFalse(game.isTurn());
     }
-    /**
-     * Tests move on board
-     */
-    @Test
-    public void gameExecution(){
 
-    }
 }

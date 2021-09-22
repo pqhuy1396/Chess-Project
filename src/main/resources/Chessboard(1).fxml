@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chess.controller.GuiControl">
+   <children>
+      <SplitPane dividerPositions="0.6987513007284079" prefHeight="711.0" prefWidth="770.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <GridPane fx:id="board" alignment="CENTER" gridLinesVisible="true" prefHeight="608.8" prefWidth="515.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                        <ColumnConstraints fx:id="a" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="b" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="c" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="d" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="e" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints fx:id="f" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints fx:id="g" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="h" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints fx:id="zeile1" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="zeile2" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="zeile3" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="zeile4" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="zeile5" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints fx:id="zeile6" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints fx:id="zeile7" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints fx:id="zeile8" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <StackPane fx:id="a8" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/50false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="a6" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="a4" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="a2" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="0" GridPane.rowIndex="6">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="b7" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="c8" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/31false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="c6" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="d5" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="e4" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="f3" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="g2" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="h1" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="7" GridPane.rowIndex="7">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/50true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="b5" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="d7" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="e8" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="4" GridPane.rowIndex="0">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/900false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="g4" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="c4" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="b3" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="c2" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="d1" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/90true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="e2" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="d3" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="f1" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/31true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="h5" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="7" GridPane.rowIndex="3">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="e6" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="f5" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="h3" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="7" GridPane.rowIndex="5">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="f7" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="g6" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="g8" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="6" GridPane.rowIndex="0">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/30false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="h7" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="b8" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/30false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="d8" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/90false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="f8" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="5" GridPane.rowIndex="0">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/31false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="a7" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="c7" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="e7" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="g7" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="h8" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="7" GridPane.rowIndex="0">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/50false.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="b6" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="d6" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="f6" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="h6" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="7" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="a5" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="c5" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="e5" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="g5" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="h4" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="7" GridPane.rowIndex="4">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="f4" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="d4" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="b4" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="a3" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="c3" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="e3" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="g3" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" />
+                           </children></StackPane>
+                        <StackPane fx:id="b2" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="d2" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="f2" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="h2" onMouseClicked="#buttonPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="7" GridPane.rowIndex="6">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/10true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="a1" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="0" GridPane.rowIndex="7">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/50true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="c1" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/31true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="e1" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/900true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="g1" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square" stylesheets="@colors.css" GridPane.columnIndex="6" GridPane.rowIndex="7">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/30true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                        <StackPane fx:id="b1" onMouseClicked="#buttonLastRowPressed" prefHeight="150.0" prefWidth="200.0" styleClass="board_square_alt" stylesheets="@colors.css" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <children>
+                              <ImageView disable="true" fitHeight="73.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/30true.png" />
+                                 </image>
+                              </ImageView>
+                           </children></StackPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="609.0" prefWidth="322.0">
+               <children>
+                  <TitledPane fx:id="menu" collapsible="false" disable="true" layoutY="330.0" prefHeight="225.0" prefWidth="229.0" text="Settings" visible="false">
+                     <content>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <CheckBox fx:id="rotate" mnemonicParsing="false" onAction="#rotationToggle" prefHeight="70.0" prefWidth="222.0" text="Rotate board after turn" textFill="#2e2c2c" />
+                              <CheckBox fx:id="checkDisplay" mnemonicParsing="false" onAction="#displayCheckToggle" prefHeight="51.0" prefWidth="269.0" text="Display check" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="displayPossible" mnemonicParsing="false" onAction="#possibleMovesToggle" prefHeight="58.0" prefWidth="276.0" selected="true" text="Display possible moves" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="otherFigure" mnemonicParsing="false" onAction="#freeFigureToggle" prefHeight="76.0" prefWidth="285.0" text="Don't allow other figure after selection" GridPane.rowIndex="2" />
+                              <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitGame" prefHeight="54.0" prefWidth="212.0" text="Exit Game" GridPane.rowIndex="5" />
+                              <Button mnemonicParsing="false" onAction="#changeLanguage" GridPane.rowIndex="4">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/Flag.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </content>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </TitledPane>
+                  <TabPane prefHeight="305.0" prefWidth="230.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab fx:id="beatenTab" text="Beaten Figures">
+                           <content>
+                              <ScrollPane prefHeight="259.0" prefWidth="230.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="277.0" prefWidth="230.0">
+                                       <children>
+                                          <ListView fx:id="beaten" prefHeight="264.0" prefWidth="218.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </ScrollPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="historyTab" text="History">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="257.0" prefWidth="205.0">
+                                 <children>
+                                    <ListView fx:id="history" onMouseClicked="#undoHistory" prefHeight="273.0" prefWidth="229.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+
+                  <ButtonBar layoutY="557.0" prefHeight="50.0" prefWidth="230.0">
+                     <buttons>
+                      <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#menuCall" prefHeight="51.0" prefWidth="41.0" style="-fx-graphic: e8b8;">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/outline_settings_black_24dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </buttons></ButtonBar>
+                  <Button fx:id="undo" layoutX="27.0" layoutY="304.0" mnemonicParsing="false" onAction="#undoSimple" prefHeight="26.0" prefWidth="64.0" text="undo" />
+                  <Button fx:id="redo" layoutX="131.0" layoutY="304.0" mnemonicParsing="false" onAction="#redoSimple" text="redo" />
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</VBox>

@@ -4,8 +4,9 @@ package chess.model;
  */
 public class King implements Figure {
     public int type = 40;
-
+    String Symbol;
     private boolean colour;
+    int value = 900;
 
     /**
      * Creates a new King Instance with one of the two Colours.
@@ -31,10 +32,23 @@ public class King implements Figure {
     @Override
     public String print(){
         if (colour){
+            //return "\u265A";
+            return "K";
+        }
+        else {
+            //return "\u2654";
+            return "k";
+        }
+    }
+    @Override
+    public String print1(){
+        if (!colour){
             return "\u265A";
+
         }
         else {
             return "\u2654";
+
         }
     }
 
@@ -147,7 +161,7 @@ public class King implements Figure {
      * @return returns true if the king can do that castling maneuver
      */
     public boolean checkLargeCastling(int[] order, Board board){
-        return type == 40 && order[1] == order[3] && order[0]-2 == order[2] && board.squares[order[3]][order[2]-1].isEmpty() && board.squares[order[3]][order[2]+1].isEmpty() && board.squares[order[3]][order[2]].isEmpty() &&!board.squares[order[3]][order[2]-2].isEmpty()&& board.squares[order[3]][order[2]-2].getFigure().getType() == 10;
+        return type == 40 && order[1] == order[3] && order[0]-2 == order[2] &&!(order[2]==0)&& board.squares[order[3]][order[2]-1].isEmpty() && board.squares[order[3]][order[2]+1].isEmpty() && board.squares[order[3]][order[2]].isEmpty() &&!board.squares[order[3]][order[2]-2].isEmpty()&& board.squares[order[3]][order[2]-2].getFigure().getType() == 10;
     }
 
     /**
@@ -159,8 +173,20 @@ public class King implements Figure {
         this.type = i;
     }
 
+    /***
+     * method to set colour of the King
+     * @param colour the wanted colour
+     */
     public void setColour(Boolean colour){
         this.colour=colour;
 }
 
+    /**
+     * method to get the value of the king
+     * @return value in int
+     */
+    @Override
+    public int getValue(){
+        return value;
+    }
 }

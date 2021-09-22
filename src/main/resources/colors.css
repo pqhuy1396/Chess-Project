@@ -1,0 +1,7 @@
+.board_square {
+ -fx-background-color: #1e90ff;
+}
+
+.board_square_alt {
+ -fx-background-color: #cccccc;
+}

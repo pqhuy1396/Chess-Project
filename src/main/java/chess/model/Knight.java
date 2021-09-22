@@ -5,6 +5,8 @@ package chess.model;
 public class Knight implements Figure{
     private boolean colour;
      int type = 3;
+     int value = 30;
+    String Symbol;
 
      /**
      * Creates a new Knight Instance with one of the two Colours.
@@ -30,10 +32,23 @@ public class Knight implements Figure{
     @Override
     public String print(){
         if (colour){
+            //return "\u265E";
+            return "N";
+        }
+        else {
+            //return "\u2658";
+            return "n";
+        }
+    }
+    @Override
+    public String print1(){
+        if (!colour){
             return "\u265E";
+
         }
         else {
             return "\u2658";
+
         }
     }
 
@@ -89,7 +104,20 @@ public class Knight implements Figure{
         this.type = i;
     }
 
+    /**
+     * method to set the colour of the knight
+     * @param colour wanted colour
+     */
     public void setColour(boolean colour){
         this.colour=colour;
+    }
+
+    /**
+     * method to get the value of the knight
+     * @return the value in int
+     */
+    @Override
+    public int getValue(){
+        return value;
     }
 }

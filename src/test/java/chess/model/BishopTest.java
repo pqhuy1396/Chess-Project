@@ -33,8 +33,8 @@ public class BishopTest {
      */
     @Test
     public void testColor() {
-        assertEquals(bishopBlack.print(),"\u2657");
-        assertEquals(bishopWhite.print(),"\u265D");
+        assertEquals(bishopBlack.print(),"b");
+        assertEquals(bishopWhite.print(),"B");
     }
 
     /**
@@ -63,4 +63,28 @@ public class BishopTest {
         assertNotEquals(bishop1.getType(),2);
         assertEquals(bishop1.getType(),4);
     }
+
+    /**
+     * test for print method
+     */
+    @Test
+    public void testPrint(){
+        Bishop bishop1 = new Bishop(true);
+        Bishop bishop2 = new Bishop(false);
+        assertEquals(bishop1.print(),"B");
+        assertEquals(bishop2.print(),"b");
+    }
+    /**
+     * test for print1 method
+     */
+    @Test
+    public void testPrint1(){
+        Bishop bishop1 = new Bishop(true);
+        Bishop bishop2 = new Bishop(false);
+        assertEquals(bishop2.print1(),"\u265D");
+        assertEquals(bishop1.print1(),"\u2657");
+
+
+    }
+
 }

@@ -20,17 +20,17 @@ public class QueenTest {
      */
     @Test
     public void testColor() {
-        assertEquals(queenBlack.print(),"\u2655");
-        assertEquals(queenWhite.print(),"\u265b");
+        assertEquals(queenBlack.print(),"q");
+        assertEquals(queenWhite.print(),"Q");
         Queen queenWhiteWithType = new Queen(queenWhite);
-        assertEquals(queenWhiteWithType.print(),"\u265b");
+        assertEquals(queenWhiteWithType.print(),"Q");
         assertEquals(queenWhiteWithType.getType(),5);
     };
     /**
      * test move of queen with cross, straight, across and wrong move
      */
     @Test
-    public void testCheckMove() {
+    public void testCheckMove1() {
         int[] crossMove = {1,3,1,3};
         int[] straightMove = {3,2,3,5};
         int[] wrongMove = {2,3,5,1};
@@ -41,6 +41,21 @@ public class QueenTest {
         //Test straight move of queen
         assertTrue(queenBlack.checkMove(straightMove));
         assertTrue(queenWhite.checkMove(straightMove));
+
+    }
+
+
+    /**
+     * test move of queen with cross, straight, across and wrong move
+     */
+    @Test
+    public void testCheckMove2() {
+        int[] crossMove = {1, 3, 1, 3};
+        int[] straightMove = {3, 2, 3, 5};
+        int[] wrongMove = {2, 3, 5, 1};
+        int[] acrossMove = {1, 2, 3, 2};
+
+
         //Test wrong move of queen
         assertFalse(queenBlack.checkMove(wrongMove));
         assertFalse(queenWhite.checkMove(wrongMove));
@@ -76,6 +91,28 @@ public class QueenTest {
         queen1.setType(5);
         assertNotEquals(queen1.getType(),2);
         assertEquals(queen1.getType(),5);
+    }
+    /**
+     * test for print method
+     */
+    @Test
+    public void testPrint() {
+
+        assertEquals(queenWhite.print(), "Q");
+        assertEquals(queenBlack.print(), "q");
+    }
+
+    /**
+     * test for print1 method
+     */
+    @Test
+    public void testPrint1() {
+
+        assertEquals(queenBlack.print1(), "\u265b");
+        assertEquals(queenWhite.print1(), "\u2655");
+
+
+
     }
 
 

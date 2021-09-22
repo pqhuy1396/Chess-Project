@@ -11,17 +11,18 @@ public class Board {
 
     Square[][] squares = new Square[8][8];
     List<Figure> beatenFigures = new LinkedList();
-
+    List<String> beatenStringFigures = new LinkedList<>();
+    String beatenHistory = new String();
     /**
      * Initializes the Board by creating Square Instances with the typical Start Set Up of Chess
      */
     public Board() {
-        for (int j=0;j<8;j++) {
+        for (int j = 0; j < 8; j++) {
             for (int i = 0; i < 8; i++) {
                 squares[i][j] = new Square();
             }
         }
-        for (int j = 0; j < 8;j++ ) {
+        for (int j = 0; j < 8; j++) {
             squares[1][j] = new Square(true, new Pawn(false));
 
 
@@ -68,10 +69,11 @@ public class Board {
 
     /**
      * Constructs a copy of an already existing board
+     *
      * @param board the board of which a copy is made
      */
     public Board(Board board) {
-
+this.beatenHistory=board.getBeatenHistory();
         for (int j = 0; j < 8; j++) {
             for (int i = 0; i < 8; i++) {
                 this.squares[i][j] = new Square(board.squares[i][j]);
@@ -80,26 +82,11 @@ public class Board {
         }
     }
 
-
-
-    /**
-     * Prints the Field using the Print Method of the Squares
-     */
-    public void print(){
-            for(int i = 0 ; i<8;i++){
-                System.out.print(8-i+" ");
-                for(int j = 0 ; j<8;j++){
-                    if(j<7) {
-                        System.out.print(squares[i][j].print() + " ");
-                    }else {
-                        System.out.println(squares[i][j].print());
-                    }
-                }
-
-        }
-        System.out.println(" a  b  c  d  e  f  g  h");
-
-
+    public String getBeatenHistory() {
+        return beatenHistory;
+    }
+    public void setBeatenHistory(String history){
+        this.beatenHistory=history;
     }
 
     /**
@@ -113,9 +100,9 @@ public class Board {
 
         while (i < 8) {
             if (!board.squares[7][i].isEmpty() && board.squares[7][i].getFigure().getType() == 0) {
-                pawnAscensionBlack(board,s,i);
-            } else if ( !board.squares[0][i].isEmpty() && board.squares[0][i].getFigure().getType() == 0) {
-                pawnAscensionWhite(board,s,i);
+                pawnAscensionBlack(board, s, i);
+            } else if (!board.squares[0][i].isEmpty() && board.squares[0][i].getFigure().getType() == 0) {
+                pawnAscensionWhite(board, s, i);
             }
             i++;
         }
@@ -124,23 +111,27 @@ public class Board {
 
     /**
      * Scans what figure the white pawn should transform into
+     *
      * @param board The current board
-     * @param s The current Command in String Form
-     * @param i The x coordinate of the pawn
+     * @param s     The current Command in String Form
+     * @param i     The x coordinate of the pawn
      */
-    public void pawnAscensionBlack(Board board, String s, int i){
+    public void pawnAscensionBlack(Board board, String s, int i) {
         if (s.length() == 6) {
             switch (s.charAt(5)) {
-                case 'q':
-                    board.squares[7][i].setFigure(new Queen(false));
-                case 'b':
+
+                case 'B':
                     board.squares[7][i].setFigure(new Bishop(false));
-                case 'r':
+                    break;
+                case 'R':
                     board.squares[7][i].setFigure(new Rook(false));
-                case 'n':
+                    break;
+                case 'N':
                     board.squares[7][i].setFigure(new Knight(false));
+                    break;
                 default:
                     board.squares[7][i].setFigure(new Queen(false));
+                    break;
             }
         } else {
             board.squares[7][i].setFigure(new Queen(false));
@@ -150,27 +141,79 @@ public class Board {
 
     /**
      * Scans what figure the black pawn should transform into
+     *
      * @param board The current board
-     * @param s The current Command in String Form
-     * @param i The x coordinate of the pawn
+     * @param s     The current Command in String Form
+     * @param i     The x coordinate of the pawn
      */
-    public void pawnAscensionWhite(Board board, String s, int i){
+    public void pawnAscensionWhite(Board board, String s, int i) {
         if (s.length() == 6) {
             switch (s.charAt(5)) {
-                case 'Q':
-                    board.squares[0][i].setFigure(new Queen(true));
                 case 'B':
                     board.squares[0][i].setFigure(new Bishop(true));
+                    break;
                 case 'R':
                     board.squares[0][i].setFigure(new Rook(true));
+                    break;
                 case 'N':
                     board.squares[0][i].setFigure(new Knight(true));
+                    break;
                 default:
                     board.squares[0][i].setFigure(new Queen(true));
+                    break;
             }
         } else {
             board.squares[0][i].setFigure(new Queen(true));
         }
     }
 
+    /**
+     * Returns an element from the squares Array
+     *
+     * @param a the y position of the element
+     * @param b the x position of the element
+     * @return the element at the given position
+     */
+    public Square getSquare(int a, int b) {
+        return squares[a][b];
+    }
+
+    /**
+     * Sets the figure of a square at a certain position in the squares array
+     *
+     * @param a   the y position of the square
+     * @param b   the x position of the square
+     * @param fig the figure that will be assigned to the square
+     */
+    public void setSquare(int a, int b, Figure fig) {
+        squares[a][b].setFigure(fig);
+    }
+
+    /**
+     * list of figures which got beaten on a board
+     * @return a list of figures
+     */
+    public List<Figure> getBeatenFigures() {
+        return beatenFigures;
+    }
+
+
+    /**
+     * method to get the amount of figures on a board
+     * @return the amount in int
+     */
+    public int getFigureAmount() {
+        int amount = 0;
+
+        for (int j = 0; j < 8; j++) {
+            for (int i = 0; i < 8; i++) {
+                if (!squares[i][j].isEmpty()) {
+                    amount++;
+                }
+
+            }
+
+        }
+        return amount;
+    }
 }

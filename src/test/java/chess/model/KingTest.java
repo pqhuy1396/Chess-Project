@@ -17,14 +17,41 @@ public class KingTest {
      */
     @Test
     public void testColor() {
-        assertEquals(kingBlack.print(),"\u2654");
-        assertEquals(kingWhite.print(),"\u265A");
+        assertEquals(kingBlack.print(),"k");
+        assertEquals(kingWhite.print(),"K");
     };
     /**
-     * Testing move of king with cross, straight, across and wrong move
+     * Testing move of white king with cross, straight, across and wrong move
      */
     @Test
-    public void testCheckMove() {
+    public void testCheckMove1() {
+        int[] crossMove = {1,1,2,2};
+        int[] straightMove = {1,2,1,3};
+        int[] acrossMove = {1,2,2,2};
+        int[] wrongMove = {1,2,3,3};
+        int[] moveTop = {2,2,1,1};
+        //cross move
+
+        assertTrue(kingWhite.checkMove(crossMove));
+        //straight move
+
+        assertTrue(kingWhite.checkMove(straightMove));
+        // across move
+
+        assertTrue(kingWhite.checkMove(acrossMove));
+        // wrong move
+
+        assertFalse(kingWhite.checkMove(wrongMove));
+        //move top
+
+        assertTrue(kingWhite.checkMove(moveTop));
+    }
+
+    /**
+     * Testing move of black king with cross, straight, across and wrong move
+     */
+    @Test
+    public void testCheckMove2() {
         int[] crossMove = {1,1,2,2};
         int[] straightMove = {1,2,1,3};
         int[] acrossMove = {1,2,2,2};
@@ -32,19 +59,19 @@ public class KingTest {
         int[] moveTop = {2,2,1,1};
         //cross move
         assertTrue(kingBlack.checkMove(crossMove));
-        assertTrue(kingWhite.checkMove(crossMove));
+
         //straight move
         assertTrue(kingBlack.checkMove(straightMove));
-        assertTrue(kingWhite.checkMove(straightMove));
+
         // across move
         assertTrue(kingBlack.checkMove(acrossMove));
-        assertTrue(kingWhite.checkMove(acrossMove));
+
         // wrong move
         assertFalse(kingBlack.checkMove(wrongMove));
-        assertFalse(kingWhite.checkMove(wrongMove));
+
         //move top
         assertTrue(kingBlack.checkMove(moveTop));
-        assertTrue(kingWhite.checkMove(moveTop));
+
     }
 
     /**
@@ -116,5 +143,28 @@ public class KingTest {
         assertNotEquals(king1.getType(),40);
         assertEquals(king1.getType(),4);
     }
+    /**
+     * test for print method
+     */
+    @Test
+    public void testPrint(){
+        King king1 = new King(true);
+        King king2 = new King(false);
+        assertEquals(king1.print(),"K");
+        assertEquals(king2.print(),"k");
+    }
+    /**
+     * test for print1 method
+     */
+    @Test
+    public void testPrint1(){
+        King king1 = new King(true);
+        King king2 = new King(false);
+        assertEquals(king2.print1(),"\u265A");
+        assertEquals(king1.print1(),"\u2654");
+
+
+    }
+
 
 }

@@ -1,36 +1,67 @@
 package chess;
 
-//import chess.model.Board;
-import chess.model.Game;
+
+import chess.controller.ConsoleInput;
+
+import chess.controller.ConsoleOnlineGame;
+import chess.controller.GameSetup;
+import chess.controller.GuiControl;
+import java.io.IOException;
 import java.util.Arrays;
+
 
 
 /**
  * The main class
  */
-public class Main {
+public class Main   {
 
     /**
      * the main method
+     *
      * @param args starts the game without gui if "--no-gui" is given
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        boolean cli = Arrays.asList(args).contains("--no-gui");
-        if (cli) {
-            Game game = new Game();
-            while (true){
-                game.runGame();
-            }
+        boolean simple = Arrays.asList(args).contains("--simple");
+        boolean nogui = Arrays.asList(args).contains("--no-gui");
+
+        GameSetup setup = new GameSetup();
+
+
+        if (simple) {
+            setup.HumanHuman();
+        } else if (nogui) {
+            ConsoleInput input = new ConsoleInput();
+
+            boolean exit = false;
+            while (!exit) {
+        System.out.println("choose opponent (either 'human' or 'computer' or 'online') or exit with 'exit'");
+                String choose = input.listenInput();
+
+                if (choose.equals("exit")) {
+                    exit = true;
+                } else if (choose.equals("human")) {
+                    setup.HumanHuman();
+
+                } else if (choose.equals("computer")) {
+                    setup.HumanAi();
+                } else if (choose.equals("aiaiai")) {
+                    setup.AiAi();
+
+                }else if( choose.equals("online")){
+                    ConsoleOnlineGame consoleOnlineGame = new ConsoleOnlineGame();
+                    consoleOnlineGame.run();
+                }
+
         }
 
-        //boolean cli = Arrays.asList(args).contains("--no-gui");
-        //if (cli) {
-        //    Cli.main(args);
-        //} else {
-        //    Gui.main(args);
-        //}
-        //ConsoleInput Console = new ConsoleInput();
-        //System.out.print(Console.listenInput());
+
+        }
+        else {
+            GuiControl guiControl = new GuiControl();
+            guiControl.activateGui();
+    }
+
     }
 }

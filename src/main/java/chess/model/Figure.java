@@ -4,6 +4,7 @@ package chess.model;
  */
 public interface Figure {
     int type =0;
+
     /**
      * Returns the Symbol of the Figure
      * @return Returns the specific String Code for the Symbol
@@ -24,6 +25,12 @@ public interface Figure {
      boolean checkMove(int[] order);
 
     /**
+     * The Unicode String Method
+     * @return The Unicode for the current Figure
+     */
+    String print1();
+
+    /**
      * Returns the Type of the Figure
      *
      * @return Returns a specific Number representing this Figure
@@ -32,6 +39,7 @@ public interface Figure {
 
     /**
      * Sets the Type of the Figure
+     * @param i number of type
      */
     void setType(int i);
 
@@ -42,4 +50,10 @@ public interface Figure {
      * @return Returns true when the move is valid
      */
     boolean specialMove(int[] order, Board board);
+
+    /**
+     * method to get the value of a figure
+     * @return returns the value in int
+     */
+    int getValue();
 }

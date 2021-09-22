@@ -5,6 +5,11 @@ package chess.model;
 public class Bishop implements Figure {
     private boolean colour;
     public int type = 2;
+    String Symbol;
+    int value = 31;
+
+
+
     /**
      * Creates a new Bishop Instance with one of the two Colours.
      * @param colour One of the two Colours in Boolean Form. White: True ; Black: False
@@ -24,16 +29,37 @@ public class Bishop implements Figure {
     }
 
     /**
+     * method to get the value of the Bishop
+     * @return value of Bishop in int
+     */
+    @Override
+    public int getValue(){
+        return value;
+}
+    /**
      * Returns the Symbol of the Bishop
      * @return Returns the specific String Code for the Symbol
      */
     @Override
     public String print(){
         if (colour){
+            //return "\u265D";
+            return "B";
+        }
+        else {
+            //return "\u2657";
+            return "b";
+        }
+    }
+    @Override
+    public String print1(){
+        if (!colour){
             return "\u265D";
+
         }
         else {
             return "\u2657";
+
         }
     }
 

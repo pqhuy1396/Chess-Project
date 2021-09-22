@@ -5,7 +5,9 @@ package chess.model;
 public class Pawn implements Figure {
 boolean colour;
 int type = 0;
+int value = 10;
     int typeCopy = 0;
+    String Symbol;
 
     /**
      * Creates a new Pawn Instance with one of the two Colours.
@@ -31,9 +33,21 @@ int type = 0;
     @Override
     public String print() {
         if(colour) {
+            //return "\u265F";
+            return "P";
+        }else {
+            //return "\u2659";
+            return "p";
+        }
+    }
+    @Override
+    public String print1() {
+        if(!colour) {
             return "\u265F";
+
         }else {
             return "\u2659";
+
         }
     }
 
@@ -152,8 +166,11 @@ int type = 0;
      */
     public boolean enPassantBlack(int[] order, Board board){
         if(!colour && order[1]+1==order[3] && (order[0]+1==order[2] || order[0]-1==order[2]) &&!board.squares[order[3]-1][order[2]].isEmpty() && board.squares[order[3]-1][order[2]].getFigure().getType() == 20 && board.squares[order[3]-1][order[2]].isFigureColour()) {
-            board.beatenFigures.add(board.squares[order[3]-1][order[2]].getFigure());
+
+            String history=board.getBeatenHistory()+board.getSquare(order[3]-1,order[2]).getFigure().print1()+" ";
             board.squares[order[3]-1][order[2]].removeFigure();
+
+            board.setBeatenHistory(history);
             return true;
         }
         return false;
@@ -166,12 +183,28 @@ int type = 0;
      */
     public boolean enPassantWhite(int[] order, Board board){
         if(colour && order[1]-1==order[3] && (order[0]+1==order[2] || order[0]-1==order[2])&& !board.squares[order[3]+1][order[2]].isEmpty() && board.squares[order[3]+1][order[2]].getFigure().getType() == 20 && !board.squares[order[3]+1][order[2]].isFigureColour()) {
-            board.beatenFigures.add(board.squares[order[3]+1][order[2]].getFigure());
+            String history=board.getBeatenHistory()+board.getSquare(order[3]+1,order[2]).getFigure().print1()+" ";
             board.squares[order[3]+1][order[2]].removeFigure();
+
+            board.setBeatenHistory(history);
             return true;
         }
         return false;
     }
+
+    /**
+     * method to get the value of the pawn
+     * @return value in int
+     */
+    @Override
+    public int getValue(){
+        return value;
+    }
+
+    /**
+     * method to set the colour of the pawn
+     * @param colour wanted colour
+     */
     public void setColour(boolean colour) {
         this.colour=colour;
     }

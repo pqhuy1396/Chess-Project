@@ -13,4 +13,3 @@ Kurzübersicht nützlicher Maven-Befehle. Weitere Informationen finden sich im T
 * `mvn compile site` baut den Code, die Dokumentation und die Tests und führt alle Tests, sowie JaCoCo und PMD inklusive CPD aus. Die Datei `target/site/index.html` bietet eine Übersicht über alle Reports.
 * `mvn javafx:run` führt das Projekt aus
 * `mvn javafx:run -Dargs="--no-gui"` führt das Projekt mit Command-Line-Parameter `--no-gui` aus.
-"# Chess-Sweng-SS21" 

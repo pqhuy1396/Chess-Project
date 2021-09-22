@@ -20,13 +20,13 @@ public class RookTest {
     @Test
     public void testColor() {
         assertEquals(rookBlack.print(),"r");
-        assertEquals(rookWhite.print(),"\u265C");
+        assertEquals(rookWhite.print(),"R");
     };
     /**
      * test move of rook with straight, across and wrong move
      */
     @Test
-    public void testCheckMove() {
+    public void testCheckMove1() {
         int[] straightMove = {1,5,1,5};
         int[] acrossMove = {3,5,6,5};
         int[] wrongMove = {1,3,2,7};
@@ -36,13 +36,25 @@ public class RookTest {
         //across move
         assertTrue(rookBlack.checkMove(acrossMove));
         assertTrue(rookWhite.checkMove(acrossMove));
+
+    }
+
+
+    /**
+     * test move of rook with straight, across and wrong move
+     */
+    @Test
+    public void testCheckMove2() {
+        int[] straightMove = {1, 5, 1, 5};
+        int[] acrossMove = {3, 5, 6, 5};
+        int[] wrongMove = {1, 3, 2, 7};
+
         //wrong move
         assertFalse(rookBlack.checkMove(wrongMove));
         assertFalse(rookWhite.checkMove(wrongMove));
         //no special move
         assertFalse(rookWhite.specialMove(wrongMove,board));
     }
-
 
     /**
      * Test for creating a copy of an existing Rook
@@ -70,5 +82,28 @@ public class RookTest {
         assertNotEquals(rook1.getType(),2);
         assertEquals(rook1.getType(),10);
     }
+    /**
+     * test for print method
+     */
+    @Test
+    public void testPrint() {
+
+        assertEquals(rookBlack.print(), "r");
+        assertEquals(rookWhite.print(), "R");
+    }
+
+    /**
+     * test for print1 method
+     */
+    @Test
+    public void testPrint1() {
+
+        assertEquals(rookBlack.print1(), "\u265C");
+        assertEquals(rookWhite.print1(), "\u2656");
+
+
+
+    }
+
 
 }

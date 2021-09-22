@@ -38,6 +38,12 @@
             <artifactId>javafx-controls</artifactId>
             <version>16</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>16</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -168,9 +174,18 @@
                 <configuration>
                     <excludes>
                         <!-- Ignore GUI classes for coverage -->
+                        <exclude>chess/controller/ConsoleOnlineGame.class</exclude>
+                        <exclude>chess/controller/GameSetup.class</exclude>
+                        <exclude>chess/controller/GuiButtonBar.class</exclude>
+                        <exclude>chess/controller/GuiControl.class</exclude>
+                        <exclude>chess/controller/GuiLanguage.class</exclude>
+                        <exclude>chess/controller/GuiMenu.class</exclude>
+                        <exclude>chess/controller/GuiVar.class</exclude>
+                        <exclude>chess/controller/GuiMatchInfo.class</exclude>
                         <exclude>chess/cli/**/*</exclude>
                         <exclude>chess/gui/**/*</exclude>
                         <exclude>chess/Main.class</exclude>
+                        <exclude>chess/controller/GameControls/runGame()</exclude>
                     </excludes>
                 </configuration>
             </plugin>

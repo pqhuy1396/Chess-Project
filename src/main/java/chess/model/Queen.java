@@ -5,7 +5,8 @@ package chess.model;
 public class Queen implements Figure {
     int type = 5;
     private boolean colour;
-
+    String Symbol;
+    int value = 90;
     /**
      * Creates a new Queen Instance with one of the two Colours.
      * @param colour One of the two Colours in Boolean Form. White: True ; Black: False
@@ -29,10 +30,23 @@ public class Queen implements Figure {
     @Override
     public String print(){
         if (colour){
+            //return "\u265b";
+            return "Q";
+        }
+        else {
+            //return"\u2655";
+            return "q";
+        }
+    }
+    @Override
+    public String print1(){
+        if (!colour){
             return "\u265b";
+
         }
         else {
             return"\u2655";
+
         }
     }
 
@@ -86,5 +100,14 @@ public class Queen implements Figure {
     @Override
     public void setType(int  i) {
         this.type = i;
+    }
+
+    /**
+     * method to get the value of the Queen
+     * @return value in int
+     */
+    @Override
+    public int getValue(){
+        return value;
     }
 }
